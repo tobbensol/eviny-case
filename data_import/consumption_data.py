@@ -13,7 +13,7 @@ def get_consumption_data(area: str,
     
     try:
         if save_path != None:
-            df = pd.read_csv(save_path)
+            df = pd.read_csv(save_path, low_memory=False)
             df["startTime"] = pd.to_datetime(df["startTime"], utc=True).dt.tz_convert('Europe/Oslo')
             return df
     except:
